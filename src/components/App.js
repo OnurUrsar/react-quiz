@@ -95,7 +95,9 @@ function App() {
       },
     })
       .then((res) => res.json())
-      .then((data) => dispatch({ type: "dataReceived", payload: data }))
+      .then((data) =>
+        dispatch({ type: "dataReceived", payload: data.record.questions })
+      )
       .catch((err) => dispatch({ type: "dataFailed" }));
   }, []);
 
