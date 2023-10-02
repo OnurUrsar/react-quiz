@@ -86,7 +86,13 @@ function App() {
   );
 
   useEffect(() => {
-    fetch("http://localhost:8000/questions")
+    fetch("https://api.jsonbin.io/v3/b/651ab7ca54105e766fbca414/latest", {
+      method: "GET",
+      headers: {
+        "X-Master-Key":
+          "$2a$10$qTFfF2eIgfUtZ7uZ8/JXlOvUbVjDM2Yum7.dMHeWq3QrDqc8bmfD2",
+      },
+    })
       .then((res) => res.json())
       .then((data) => dispatch({ type: "dataReceived", payload: data }))
       .catch((err) => dispatch({ type: "dataFailed" }));
